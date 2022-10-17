@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: 16
 
-      
-      - run: npm ci
+      - name: Install dependencias
+       - run: npm ci --force
 
-      - run: npm run build-storybook
+      - name: Build Storybook
+       - run: npm run build-storybook
 
       - name: Deploy Storybook
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
